@@ -16,3 +16,7 @@
 // });
 
 Route::get('/', 'LandingController@home');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
