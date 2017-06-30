@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/css/landing.css">
+    <link rel="shortcut icon"  href="assets/img/portal_logo.png">
 
-    <title>Portal</title>
+    <title> Portal | Platería</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -46,10 +49,28 @@
             border-right: 2px solid #FFB400;
             border-bottom: 2px solid #FFB400;
         }
+        a {color:#FFFFFF;} 
+        a:visited {color:#FFFFFF;} 
+        a:active {color:#FFB6C1;} 
+        a:hover {color:#FFFFFF;} 
     </style>
     @yield('css')
 </head>
+
+
 <body id="app-layout">
+<!-- Barra de Informacion de la Empresa -->
+    <div class="portal_info">
+    <a href="" class="portal_email"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;correo@portalplateria.com.mx</a>
+    <i class="portal_info_icons fa fa-facebook fa-lg" aria-hidden="true"></i>
+    <i class="portal_info_icons fa fa-instagram fa-lg" aria-hidden="true"></i>
+    <a class="portal_phone"><i class="portal_info_icons fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;615 4640 3090</a>
+    <i class="portal_info_icons fa fa-clock fa-lg" aria-hidden="true"></i>
+    <i class="portal_info_icons fa fa-clock-o fa-lg" aria-hidden="true"></i>Lun - Sab 8:00am - 8:00pm | Dom cerrado
+    </div>
+<!-- Barra de Informacion de la Empresa -->
+
+<!-- Barra de Navegación de la Página -->
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -64,7 +85,9 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Portal
+                    <a href="{{  url('/home')}}">
+                        <img class="portal_logo" src="assets/img/portal_logo.png" alt="">
+                    </a>
                 </a>
             </div>
 
@@ -82,6 +105,8 @@
                         @yield('navbar-guest')
                         <li><a href="{{ url('/login') }}">Iniciar sesión</a></li>
                         <li><a href="{{ url('/register') }}">Crear cuenta</a></li>
+                        <li><a href="" class="fa fa-search fa-lg" aria-hidden="true"></i></a>        
+                        </li>
                     @else
                         @yield('navbar-auth')
                         <li class="dropdown">
@@ -99,6 +124,7 @@
             </div>
         </div>
     </nav>
+<!-- Barra de Navegación de la Página -->
 
     @yield('content')
 

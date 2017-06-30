@@ -1,0 +1,121 @@
+.carousel_img{
+	width: 100% !important;
+}
+.navbar-default .navbar-nav>li>a{
+	color: #525252;
+	font-size: 130%;
+}
+.portal_logo{
+	width: 25% !important;
+	height: 20% !important;
+	margin: -1% -20% -1% !important;
+}
+.navbar{
+	background-color: #fff;    
+	margin-bottom: 0%;
+}
+.portal_info{
+	width: 100% !important;
+	background-color: #525252;
+	color: #ffffff;
+	font-size: 120%;
+}
+.fa-envelope-o{
+	color: #FFB400;
+	margin: .5%;
+}
+.portal_email,.portal_phone{
+	padding: .5% 1% 0% 0%;
+	border-right: 2px solid #ffffff;
+}
+
+.portal_phone{
+	margin-left: 27%;
+}
+.portal_info_icons{
+	margin: .2%;
+	color: #FFB400;
+}
+.navbar-right{
+	margin: -5% -8%;
+}
+.Portal_titles{
+    text-align: left;
+    margin-left: -9%;
+    width: 74%;
+}
+.Portal_titles>.h6-responsive{
+	font-size: 180%;
+    font-weight: bold !important;
+    margin-bottom: 3%;
+    margin-top: -61%;
+}
+.Portal_titles>.h1-responsive{
+	font-size: 390%;
+    font-weight: bold !important;
+}
+.Portal_catalogo{
+	font-size: 100%;
+    margin-top: 6%;
+    border-radius: 5px;
+    background-color: #FFB400 !important;
+}
+.Portal_catalogo_{
+	color: #525252 !important;
+    font-size: 85%;
+    border: 5px solid #525252;
+    border-radius: 10px;
+    background-color: #FFFFFF !important;
+    margin: 20% 0%;
+}
+.Portal_about{
+	border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 135% !important;
+    text-align: center;
+    height: 260px;
+    padding-top: 1%;
+}
+.Portal_container{
+	text-align: center;
+    margin-top: 7%;
+}
+.Portal_about_logo{
+	border: 5px solid #FFB400;
+}
+.conten:first-child{
+	margin-left: 4%;
+}
+.conten:nth-child(2){
+	margin-left: -4%;
+}
+.conten:last-child{
+	margin-left: -4%;
+}
+.Portal_destacados,.Portal_vercatalogo{
+	text-align: center !important;
+	margin: 9% 0% -8% 0%;
+}
+.Portal_destacados>h1,.Portal_destacados>h5{
+	font-weight: 500;
+}
+.Portal_catalogo_:hover{
+	background-color: #FFFFFF;
+}
+.Portal_productos{
+	margin-top: 15%;
+}
+.Portal_divbtn{
+    border-top: 3px solid #FFB400;
+}
+.card{
+	border: 3px solid #FFB400 !important;
+	width: 80%;
+}
+.card-block{
+    text-align: left !important;
+	padding: 1rem !important;
+    background: #FFB400;
+    opacity: .8;
+    color: #FFFFFF;
+}
