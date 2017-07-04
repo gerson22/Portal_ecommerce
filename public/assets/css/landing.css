@@ -102,15 +102,12 @@
 .Portal_catalogo_:hover{
 	background-color: #FFFFFF;
 }
-.Portal_productos{
-	margin-top: 15%;
-}
 .Portal_divbtn{
     border-top: 3px solid #FFB400;
 }
 .card{
 	border: 3px solid #FFB400 !important;
-	width: 80%;
+	width: 90%;
 }
 .card-block{
     text-align: left !important;
@@ -118,4 +115,22 @@
     background: #FFB400;
     opacity: .8;
     color: #FFFFFF;
+    font-size: 80%;
+}
+.Portal_productos{
+}
+#Portal_cards{
+    margin-top: 10rem;
+}
+.Portal_infoProducto{
+	font-size: 150%;
+}
+.Nombre_producto{
+    margin: -2% 0% 0%;
+}
+.Precio_producto{
+	color: #FFB400;
+}    
+.overlay{
+	height: 13rem;
 }
