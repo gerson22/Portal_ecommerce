@@ -266,11 +266,21 @@
 
 <div class="Portal_Proveedores container">
 	<div class="row">
-		<div class="mult_opciones">
-
-	
-			<p>MULTIPLES OPCIONES</p>
-			<p>Contamos con los mejores proveedores, para llevarte gran diversidad en joyería mexicana</p>
+		<div class="mult_opciones col-md-12">
+			<div class="mask col-md-12">
+				<p class="text_opciones">MULTIPLES OPCIONES</p>
+				<p class="text_descripcion">Contamos con los mejores proveedores, para llevarte gran diversidad en joyería mexicana</p>
+			</div>		
+		</div>
+	</div>
+	<div class="row col-md-12 Portal_proves">
+		<div class="col-md-6 Portal_imgProve">
+			<img class="" src="assets/img/Prove_kuyén.png" alt="">
+			<button class="btn btn-warning Portal_catalogo">VER PRODUCTOS</button>	
+		</div>
+		<div class="col-md-6 Portal_imgProve">
+			<img class="" src="assets/img/Prove_kuyén.png" alt="">
+			<button class="btn btn-warning Portal_catalogo">VER PRODUCTOS</button>
 		</div>
 	</div>
 </div>

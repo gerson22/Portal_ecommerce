@@ -21,7 +21,7 @@
 	font-size: 120%;
 }
 .fa-envelope-o{
-	color: #FFB400;
+	color: #FDB301;
 	margin: .5%;
 }
 .portal_email,.portal_phone{
@@ -34,7 +34,7 @@
 }
 .portal_info_icons{
 	margin: .2%;
-	color: #FFB400;
+	color: #FDB301;
 }
 .navbar-right{
 	margin: -5% -8%;
@@ -58,7 +58,7 @@
 	font-size: 100%;
     margin-top: 6%;
     border-radius: 5px;
-    background-color: #FFB400 !important;
+    background-color: #FDB301 !important;
 }
 .Portal_catalogo_{
 	color: #525252 !important;
@@ -81,7 +81,7 @@
     margin-top: 7%;
 }
 .Portal_about_logo{
-	border: 5px solid #FFB400;
+	border: 5px solid #FDB301;
 }
 .conten:first-child{
 	margin-left: 4%;
@@ -103,16 +103,16 @@
 	background-color: #FFFFFF;
 }
 .Portal_divbtn{
-    border-top: 3px solid #FFB400;
+    border-top: 3px solid #FDB301;
 }
 .card{
-	border: 3px solid #FFB400 !important;
+	border: 3px solid #FDB301 !important;
 	width: 90%;
 }
 .card-block{
     text-align: left !important;
 	padding: 1rem !important;
-    background: #FFB400;
+    background: #FDB301;
     opacity: .8;
     color: #FFFFFF;
     font-size: 80%;
@@ -129,8 +129,35 @@
     margin: -2% 0% 0%;
 }
 .Precio_producto{
-	color: #FFB400;
+	color: #FDB301;
 }    
 .overlay{
 	height: 13rem;
+}
+.mult_opciones{
+	margin-top: 5%;
+	background-image: url("/assets/img/fondo3.jpg");
+	background-position: center;
+}
+.text_opciones{
+    font-size: 220%;
+    color: #FFCA4F;
+}
+.text_descripcion{
+	font-size: 170%;
+    color: #ffffff;
+	width: 70%;
+}
+.mask{
+    background: rgba(96,96,96,.7);
+    width: 71.3rem;
+    margin-left: -1rem;
+    height: 12rem;
+    padding: 3%;
+}
+.Portal_imgProve{
+	text-align: center;
+}
+.Portal_proves{
+	margin-top: 10% !important;
 }
