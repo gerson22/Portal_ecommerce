@@ -80,29 +80,26 @@
 
 <!--/.Información del Portal-->
 
-<!--/.Productos Destacados-->
+<!--/.Productos a la venta-->
 
-<div class="Portal_destacados col-md-12">
-	<h1 class="col-md-12">Productos Destacados</h1>
-	<h5 class="col-md-6 col-md-offset-3">Te presentamos la joyería que más ventas a tenido y las favoritas de nuestros clientes</h5>
-</div>
-<div class="Portal_vercatalogo col-md-12">
-	<div class="Portal_divbtn col-md-2 col-md-offset-5">
-		<button class="btn Portal_catalogo_ col-md-12">VER CATALOGO</button>
+<div class="Portal_productos container ">
+	<div class="row ">
+		<div class="Portal_destacados col-md-12">
+			<h1 class="col-md-12">Productos Destacados</h1>
+			<h5 class="col-md-6 col-md-offset-3">Te presentamos la joyería que más ventas a tenido y las favoritas de nuestros clientes</h5>
+		</div>
+		<div class="Portal_vercatalogo col-md-12">
+			<div class="Portal_divbtn col-md-2 col-md-offset-5">
+				<button class="btn Portal_catalogo_ col-md-12">VER CATALOGO</button>
+			</div>
+		</div> 
 	</div>
-</div> 
-<!--/.Productos Destacados-->
-
-<!--/.Productos a la venta-->
-<!--/.Productos a la venta-->
-<!--/.Productos a la venta-->
-<div class="Portal_productos col-md-12">
 	<div class="row col" id="Portal_cards">
 		<div class="col-md-3">
 			<div class="card">
 				   <!--Card image-->
 			    <div class="view overlay hm-white-slight">
-			        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg" class="img-fluid" alt="">
+			        <img src="assets/img/producto1.jpg" class="img-fluid" alt="">
 			        <a>
 			            <div class="mask waves-effect waves-light"></div>
 			        </a>
@@ -113,12 +110,16 @@
 			    </div>
 			    <!--/.Card content-->
 			</div>
+			<div class="Portal_infoProducto">
+				<p class="Nombre_producto">Nombre del Producto</p>
+				<p class="Precio_producto">$ 000.00 MX</p>
+			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="card">
 				   <!--Card image-->
 			    <div class="view overlay hm-white-slight">
-			        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg" class="img-fluid" alt="">
+			        <img src="assets/img/producto2.jpg" class="img-fluid" alt="">
 			        <a>
 			            <div class="mask waves-effect waves-light"></div>
 			        </a>
@@ -129,12 +130,16 @@
 			    </div>
 			    <!--/.Card content-->
 			</div>
+			<div class="Portal_infoProducto">
+				<p class="Nombre_producto">Nombre del Producto</p>
+				<p class="Precio_producto">$ 000.00 MX</p>
+			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="card">
 				   <!--Card image-->
 			    <div class="view overlay hm-white-slight">
-			        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg" class="img-fluid" alt="">
+			        <img src="assets/img/producto3.jpg" class="img-fluid" alt="">
 			        <a>
 			            <div class="mask waves-effect waves-light"></div>
 			        </a>
@@ -145,12 +150,16 @@
 			    </div>
 			    <!--/.Card content-->
 			</div>
+			<div class="Portal_infoProducto">
+				<p class="Nombre_producto">Nombre del Producto</p>
+				<p class="Precio_producto">$ 000.00 MX</p>
+			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="card">
 				   <!--Card image-->
 			    <div class="view overlay hm-white-slight">
-			        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg" class="img-fluid" alt="">
+			        <img src="assets/img/producto4.jpg" class="img-fluid" alt="">
 			        <a>
 			            <div class="mask waves-effect waves-light"></div>
 			        </a>
@@ -161,12 +170,16 @@
 			    </div>
 			    <!--/.Card content-->
 			</div>
+			<div class="Portal_infoProducto">
+				<p class="Nombre_producto">Nombre del Producto</p>
+				<p class="Precio_producto">$ 000.00 MX</p>
+			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="card">
 				   <!--Card image-->
 			    <div class="view overlay hm-white-slight">
-			        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg" class="img-fluid" alt="">
+			        <img src="assets/img/producto5.jpg" class="img-fluid" alt="">
 			        <a>
 			            <div class="mask waves-effect waves-light"></div>
 			        </a>
@@ -177,12 +190,16 @@
 			    </div>
 			    <!--/.Card content-->
 			</div>
+			<div class="Portal_infoProducto">
+				<p class="Nombre_producto">Nombre del Producto</p>
+				<p class="Precio_producto">$ 000.00 MX</p>
+			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="card">
 				   <!--Card image-->
 			    <div class="view overlay hm-white-slight">
-			        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg" class="img-fluid" alt="">
+			        <img src="assets/img/producto6.jpg" class="img-fluid" alt="">
 			        <a>
 			            <div class="mask waves-effect waves-light"></div>
 			        </a>
@@ -193,12 +210,16 @@
 			    </div>
 			    <!--/.Card content-->
 			</div>
+			<div class="Portal_infoProducto">
+				<p class="Nombre_producto">Nombre del Producto</p>
+				<p class="Precio_producto">$ 000.00 MX</p>
+			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="card">
 				   <!--Card image-->
 			    <div class="view overlay hm-white-slight">
-			        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg" class="img-fluid" alt="">
+			        <img src="assets/img/producto7.jpg" class="img-fluid" alt="">
 			        <a>
 			            <div class="mask waves-effect waves-light"></div>
 			        </a>
@@ -209,12 +230,16 @@
 			    </div>
 			    <!--/.Card content-->
 			</div>
+			<div class="Portal_infoProducto">
+				<p class="Nombre_producto">Nombre del Producto</p>
+				<p class="Precio_producto">$ 000.00 MX</p>
+			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="card">
 				   <!--Card image-->
 			    <div class="view overlay hm-white-slight">
-			        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg" class="img-fluid" alt="">
+			        <img src="assets/img/producto8.jpg" class="img-fluid" alt="">
 			        <a>
 			            <div class="mask waves-effect waves-light"></div>
 			        </a>
@@ -224,18 +249,34 @@
 			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
 			    </div>
 			    <!--/.Card content-->
+			</div>
+			<div class="Portal_infoProducto">
+				<p class="Nombre_producto">Nombre del Producto</p>
+				<p class="Precio_producto">$ 000.00 MX</p>
 			</div>
 		</div>
 	</div>
 </div>
-<!--/.Productos a la venta-->
-<!--/.Productos a la venta-->
+
 <!--/.Productos a la venta-->
 
 
-<!--/.Carousel Wrapper-->
+<!--/.Proveedores joyeria-->
 
-<!---- Carrousel ----> 
+
+<div class="Portal_Proveedores container">
+	<div class="row">
+		<div class="mult_opciones">
+
+	
+			<p>MULTIPLES OPCIONES</p>
+			<p>Contamos con los mejores proveedores, para llevarte gran diversidad en joyería mexicana</p>
+		</div>
+	</div>
+</div>
+
+
+<!--/.Proveedores joyeria-->
 
 
 
