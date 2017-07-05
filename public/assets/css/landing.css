@@ -161,3 +161,58 @@
 .Portal_proves{
 	margin-top: 10% !important;
 }
+.Portal_Ubi{
+	width: 86rem;
+    margin-left: -8.3rem;
+    margin-top: -2%;
+}
+.text_ubicacion{
+    text-align: center;
+    font-size: 2.5rem;
+}
+.Portal_divi{
+    width: 20%;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    border-top: 2px solid #FFCA4F;
+}
+.Portal_Ubicación{	
+    margin-top: 10%;
+}
+.page-footer{
+    background-color: #1C1C1C !important;
+}
+.box_>ul>li>a{
+	font-size: 1.6rem;
+}
+.box_>ul>li{
+	margin-bottom: 1rem;
+}
+.Portal_copyright{
+    margin-left: 2rem;
+    color: #FDB301 !important;
+}
+.derechos{
+    font-size: 1.6rem;
+    color: #FFCA4F !important;
+	text-align: left;
+}
+.fa-chevron-up{
+    background-color: #FDB301;
+    color: #ffffff !important;
+    height: 2rem;
+    width: 2.2rem;
+    border-radius: 5px;
+    margin-left: 41rem;
+}
+.Portal_iconsContact{
+	padding-top: 2.5rem;
+	font-size: 3rem;
+}
+.Portal_Footer{
+	height: 15rem;
+}
+.Portal_Footer>.row{
+    padding-left: 5rem;
+    padding-top: 2rem;
+}

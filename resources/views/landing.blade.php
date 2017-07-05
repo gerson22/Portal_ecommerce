@@ -65,7 +65,6 @@
 </center>
 
 <!--/.Información del Portal-->
-
 <div class="Portal_container col-md-12">
 	<div class="conten Portal_about col-md-3 ">
 		Todos los días estamos actualizando nuestro catálogo de joyería de mayoreo con: anillos, aretes, pulseras, collares, cadenas, dijes, gargantillas, brazaletes y muy lindos sets.
@@ -77,11 +76,9 @@
 		Nuestro catálogo online esta enfocado a la venta de plata al mayoreo. Si buscas comprar joyeria para uso personal, verifica si alguna de nuestras sucursales de menudeo estan cerca de ti.
 	</div>
 </div>
-
 <!--/.Información del Portal-->
 
 <!--/.Productos a la venta-->
-
 <div class="Portal_productos container ">
 	<div class="row ">
 		<div class="Portal_destacados col-md-12">
@@ -257,13 +254,10 @@
 		</div>
 	</div>
 </div>
-
 <!--/.Productos a la venta-->
 
 
 <!--/.Proveedores joyeria-->
-
-
 <div class="Portal_Proveedores container">
 	<div class="row">
 		<div class="mult_opciones col-md-12">
@@ -284,17 +278,76 @@
 		</div>
 	</div>
 </div>
-
-
 <!--/.Proveedores joyeria-->
 
 
+<!--/.Proveedores joyeria-->
+<div class="Portal_Ubicación container">
 
+	<div class="row Portal_Ubi">
+		<p class="text_ubicacion">Nuestra Ubicación</p>
+		<hr class="Portal_divi">
+		<div class="col-md-12 Portal_Mapa">
 
+			<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3599.8885587058753!2d-103.41710958539717!3d25.54208878373701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scuriosity+boulevard+diagonal+reforma+san+marcos+torre%C3%B3n!5e0!3m2!1ses-419!2smx!4v1499269901206" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
+	<div class="row Portal_Ubi">
+		<div class="Portal_Pie">
+			<!--Footer-->
+			<footer class="page-footer blue center-on-small-only">
 
+			    <!--Footer Links-->
+			    <div class="container-fluid Portal_Footer">
+			        <div class="row">
 
+			            <!--First column-->
+			            <div class="col-md-3 box_">
+			                <ul>
+			                    <li><a href="#!">Socios</a></li>
+			                    <li><a href="#!">Kuyén</a></li>
+			                    <li><a href="#!">Nombre de otro Socio</a></li>
+			                </ul>
+			            </div>
+			            <!--/.First column-->
 
-	
+			            <!--Second column-->
+			            <div class="col-md-3 box_">
+			                <ul>
+			                    <li><a href="#!">Categorias</a></li>
+			                    <li><a href="#!">Nombre categoría</a></li>
+			                    <li><a href="#!">Nombre categoría</a></li>
+			                </ul>
+			            </div>
+			            <div class="col-md-offset-2 col-md-1 Portal_iconsContact">
+			                <i class="portal_info_icons fa fa-envelope-o fa-lg" aria-hidden="true"></i>
+			            </div>
+			            <div class="col-md-1 Portal_iconsContact">
+			                <i class="portal_info_icons fa fa-facebook fa-lg" aria-hidden="true"></i>
+			            </div>
+			            <div class="col-md-1 Portal_iconsContact">
+			                <i class="portal_info_icons fa fa-instagram fa-lg" aria-hidden="true"></i>
+			            </div>
+			            <!--/.Second column-->
+			        </div>
+			    </div>
+			    <!--/.Footer Links-->
+
+			    <!--Copyright-->
+			    <div class="footer-copyright">
+			        <div class="container-fluid derechos">
+			            <a class="Portal_copyright" href="https://www.MDBootstrap.com">© 2017 Todos los derechos reservados | Portal Platería </a>
+			            <i class="portal_info_icons fa fa-chevron-up fa-lg" aria-hidden="true"></i>			        
+			        </div>
+			    </div>
+			    <!--/.Copyright-->
+
+			</footer>
+			<!--/.Footer-->
+		</div>
+	</div>
+</div>
+<!--/.Proveedores joyeria--> 
 	<!-- Inicio de la landig -->
 	    
 	<!-- ./Fin de la landig -->

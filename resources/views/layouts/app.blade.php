@@ -51,7 +51,7 @@
         }
         a {color:#FFFFFF;} 
         a:visited {color:#FFFFFF;} 
-        a:active {color:#FFB6C1;} 
+        a:active {color:#FFCA4F;} 
         a:hover {color:#FFFFFF;} 
     </style>
     @yield('css')
