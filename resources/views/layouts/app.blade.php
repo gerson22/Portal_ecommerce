@@ -59,6 +59,7 @@
 
 
 <body id="app-layout">
+<div class="container Portal_Container">
 <!-- Barra de Informacion de la Empresa -->
     <div class="portal_info">
     <a href="" class="portal_email"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;correo@portalplateria.com.mx</a>
@@ -125,7 +126,7 @@
         </div>
     </nav>
 <!-- Barra de Navegación de la Página -->
-
+</div>
     @yield('content')
 
     <!-- JavaScripts -->
