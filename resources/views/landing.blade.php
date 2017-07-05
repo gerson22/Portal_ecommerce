@@ -37,18 +37,27 @@
                 <h1 class="h1-responsive">Accesorios para cualquier ocasión</h1>
                 <button class="btn btn-warning Portal_catalogo">VER CATALOGO</button>
             </div>
-        </div>
-      <!----   
-      <div class="carousel-item">
+        </div>   
+	    <div class="carousel-item">
             <div class="view hm-black-strong">
                 <img class="carousel_img" src="assets/img/fondo2.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-caption Portal_titles">
+                <h6 class="h6-responsive">Calidad en cada uno de nuestros productos</h6>            
+                <h1 class="h1-responsive">Accesorios para cualquier ocasión</h1>
+                <button class="btn btn-warning Portal_catalogo">VER CATALOGO</button>
             </div>
         </div>
         <div class="carousel-item">
             <div class="view hm-black-slight">
                 <img class="carousel_img" src="assets/img/fondo3.jpg" alt="Third slide">
             </div>
-        </div> ---->
+            <div class="carousel-caption Portal_titles">
+                <h6 class="h6-responsive">Calidad en cada uno de nuestros productos</h6>            
+                <h1 class="h1-responsive">Accesorios para cualquier ocasión</h1>
+                <button class="btn btn-warning Portal_catalogo">VER CATALOGO</button>
+            </div>
+        </div>
     </div>
     <!--/.Slides-->
     <!--Controls-->
