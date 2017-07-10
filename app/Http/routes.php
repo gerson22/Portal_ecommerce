@@ -17,6 +17,11 @@
 
 Route::get('/', 'LandingController@home');
 
+Route::group(['prefix' => 'proveedores'], function () {
+    Route::get('/','ProveedorController@home');
+    Route::post('save','ProveedorController@save');
+});
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

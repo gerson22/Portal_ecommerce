@@ -13,7 +13,7 @@
 <!---- Contenido de la pagina ---->
 @section('content')
 	<!-- Inicio de la landig -->
-	    
+
 	<!-- ./Fin de la landig -->
 @stop
 

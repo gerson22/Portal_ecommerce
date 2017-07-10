@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Portal</title>
 
     <!-- Fonts -->
@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="/libs/mdb/css/bootstrap.min.css">
     <link rel="stylesheet" href="/libs/mdb/css/mdb.min.css">
     <link rel="stylesheet" href="/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/general.css">
+    <link rel="stylesheet" href="/libs/pnotify/pnotify.custom.min.css">
 
     <style>
         body {
@@ -107,6 +109,21 @@
     <script src="/libs/mdb/js/tether.min.js"></script>
     <script src="/libs/mdb/js/bootstrap.min.js"></script>
     <script src="/libs/mdb/js/mdb.min.js"></script>
+    <script src="/libs/pnotify/pnotify.custom.min.js"></script>
+    <script>
+        $(function(){
+            $(document).ready(function() {
+                $('.mdb-select').material_select();
+                fixBugMDB();
+            });
+
+            function fixBugMDB(){
+                if($('span').hasClass('caret')){
+                    $('span').removeClass('caret');
+                }
+            }
+        });
+    </script>
     @yield('js')
 </body>
 </html>

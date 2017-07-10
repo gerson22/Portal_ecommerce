@@ -1,0 +1,24 @@
+.yellow-main{
+  background: #FFB400!important;
+  color:#FFFBE0!important;
+}
+.yellow-main:hover{
+  background: #FFB405!important;
+  color:#FFFBE0!important;
+}
+.yellow-alt{
+  background: #FFFBE0!important;
+  color:#474744!important;
+}
+.yellow-alt:hover{
+  background: #FFFBD0!important;
+  color:#474744!important;
+}
+.blue-alt{
+  background: #2994B2!important;
+  color:#FFFBE0!important;
+}
+.blue-alt:hover{
+  background: #2994C2!important;
+  color:#FFFBE0!important;
+}
