@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+@extends('layouts.master')
 
 <html lang="en">
 <head>
@@ -71,8 +71,13 @@
     </div>
 <!-- Barra de Informacion de la Empresa -->
 
+@section('css')
+  @yield('css')
+@endsection
+@section('navbar')
+
 <!-- Barra de Navegación de la Página -->
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -106,7 +111,7 @@
                         @yield('navbar-guest')
                         <li><a href="{{ url('/login') }}">Iniciar sesión</a></li>
                         <li><a href="{{ url('/register') }}">Crear cuenta</a></li>
-                        <li><a href="" class="fa fa-search fa-lg" aria-hidden="true"></i></a>        
+                        <li><a href="" class="fa fa-search fa-lg" aria-hidden="true"></i></a>
                         </li>
                     @else
                         @yield('navbar-auth')
@@ -116,8 +121,9 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out">
                                 @yield('navbar-dropdown-auth')
+                                </i>Salir</a></li>
                             </ul>
                         </li>
                     @endif
@@ -127,13 +133,10 @@
     </nav>
 <!-- Barra de Navegación de la Página -->
 </div>
-    @yield('content')
+     @yield('content')
+@endsection
 
-    <!-- JavaScripts -->
-    <script src="/libs/mdb/js/jquery-3.1.1.min.js"></script>
-    <script src="/libs/mdb/js/tether.min.js"></script>
-    <script src="/libs/mdb/js/bootstrap.min.js"></script>
-    <script src="/libs/mdb/js/mdb.min.js"></script>
-    @yield('js')
-</body>
-</html>
+
+@section('js')
+  @yield('js')
+@endsection

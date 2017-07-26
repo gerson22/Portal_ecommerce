@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<br><br><br><br>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading bg-y">Iniciar sesión</div>
+                <div class="panel-heading elegant-color">Iniciar sesión</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -49,11 +50,11 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-warning pull-right">
+                                <button type="submit" class="btn elegant-color-dark pull-right">
                                     <i class="fa fa-btn fa-sign-in"></i> Iniciar sesión
                                 </button>
 
-                                <a class="" href="{{ url('/password/reset') }}">¿Haz olvidaste tu contraseña?</a>
+                                <a class="grey-text" href="{{ url('/password/reset') }}">¿Haz olvidaste tu contraseña?</a>
                             </div>
                         </div>
                     </form>

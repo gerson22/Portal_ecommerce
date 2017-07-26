@@ -15,7 +15,7 @@
 @section('content')
 
 <!---- Carrousel ---->
-  
+
 <!--Carousel Wrapper-->
 <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
     <!--Indicators-->
@@ -33,12 +33,16 @@
                 <img class="carousel_img" src="assets/img/fondo1.jpg" alt="First slide">
             </div>
             <div class="carousel-caption Portal_titles">
-                <h6 class="h6-responsive">Calidad en cada uno de nuestros productos</h6>            
+                <h6 class="h6-responsive">Calidad en cada uno de nuestros productos</h6>
                 <h1 class="h1-responsive">Accesorios para cualquier ocasión</h1>
-                <button class="btn btn-warning Portal_catalogo">VER CATALOGO</button>
+                <button class="btn Portal_catalogo">VER CATALOGO</button>
             </div>
         </div>   
 	    <div class="carousel-item">
+        </div>
+      <!----
+      <div class="carousel-item">
+>>>>>>> ceb48786628ada060914e3512669d6833b696322
             <div class="view hm-black-strong">
                 <img class="carousel_img" src="assets/img/fondo2.jpg" alt="Second slide">
             </div>
@@ -62,7 +66,7 @@
     <!--/.Slides-->
     <!--Controls-->
     <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-         
+
         <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
@@ -98,7 +102,7 @@
 			<div class="Portal_divbtn col-md-2 col-md-offset-5">
 				<button class="btn Portal_catalogo_ col-md-12">VER CATALOGO</button>
 			</div>
-		</div> 
+		</div>
 	</div>
 	<div class="row col" id="Portal_cards">
 		<div class="col-md-3">
@@ -112,7 +116,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -132,7 +136,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -152,7 +156,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -172,7 +176,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -192,7 +196,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -212,7 +216,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -232,7 +236,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -252,7 +256,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -284,6 +288,11 @@
 		<div class="col-md-6 Portal_imgProve">
 			<img class="" src="assets/img/Prove_kuyén.png" alt="">
 			<button class="btn btn-warning Portal_catalogo">VER PRODUCTOS</button>
+		<div class="mult_opciones">
+
+
+			<p>MULTIPLES OPCIONES</p>
+			<p>Contamos con los mejores proveedores, para llevarte gran diversidad en joyería mexicana</p>
 		</div>
 	</div>
 </div>
@@ -350,15 +359,15 @@
 			        </div>
 			    </div>
 			    <!--/.Copyright-->
-
 			</footer>
 			<!--/.Footer-->
 		</div>
 	</div>
 </div>
 <!--/.Proveedores joyeria--> 
+
 	<!-- Inicio de la landig -->
-	    
+
 	<!-- ./Fin de la landig -->
 @stop
 

@@ -79,6 +79,7 @@
 .Portal_container{
 	text-align: center;
     margin-top: 7%;
+    @media (min-width: )
 }
 .Portal_about_logo{
 	border: 5px solid #FDB301;
@@ -136,39 +137,7 @@
 }
 .mult_opciones{
 	margin-top: 5%;
-	background-image: url("/assets/img/fondo3.jpg");
-	background-position: center;
-}
-.text_opciones{
-    font-size: 220%;
-    color: #FFCA4F;
-}
-.text_descripcion{
-	font-size: 170%;
-    color: #ffffff;
-	width: 70%;
-}
-.mask{
-    background: rgba(96,96,96,.7);
-    width: 71.3rem;
-    margin-left: -1rem;
-    height: 12rem;
-    padding: 3%;
-}
-.Portal_imgProve{
-	text-align: center;
-}
-.Portal_proves{
-	margin-top: 10% !important;
-}
-.Portal_Ubi{
-	width: 86rem;
-    margin-left: -8.3rem;
-    margin-top: -2%;
-}
-.text_ubicacion{
-    text-align: center;
-    font-size: 2.5rem;
+	b 
 }
 .Portal_divi{
     width: 20%;
@@ -222,3 +191,8 @@
     position: fixed;
     z-index: 9999;
 }
+
+
+#upch-content-formReg {
+@media (max-width: 350px)
+    height: 110% !important;
