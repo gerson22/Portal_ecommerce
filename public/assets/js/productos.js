@@ -1,31 +1,27 @@
 var __initial = {
   boot:function(){
+
+    $("#descuento").mask("99%",{inverse:false});
+
     var boot = this;
     boot.tableInfo.fill();
 
     $('tbody').on('click','.ta_update',function(){
+      $('.mdb-select').material_select('destroy');
       let info = $(this).data('info');
         $.each(info,function(key,val){
           let element;
-          switch(key){
-            case 'password':
-              element = $("input[name^=password]");
-              element.each(function(i,tag){
-                $(tag).val(val);
-              });
-            break;
-            case 'imagen_contacto':
-              element = $("."+key);
-              element.each(function(i,tag){
-                $(tag).val(val);
-              });
-            break;
-            default:
-              element = $(boot.form.id).children('div').children('.md-form').children('#'+key).eq(0);
-              element.val(val);
-            break;
+          element = $(boot.form.id).children('div').children('.md-form');
+          element.children('#'+key).eq(0).val(val);
+          if(element.children('div').children('#'+key).is('select')){
+            element.children('option').each(function(){
+              if($(this).val() === val){
+                $(this).prop('selected',true);
+              }
+            });
           }
         });
+      $('.mdb-select').material_select();
       $(boot.form.btn_submit).data('action','update');
       $(boot.form.btn_submit).data('info',JSON.stringify(info));
       boot.form.open();
@@ -35,7 +31,6 @@ var __initial = {
     $('tbody').on('click','.ta_delete',function(){
       let info = $(this).data('info');
       let dta = {
-        ID_user : info.ID_user,
         id : info.id
       }
       swal({
@@ -47,13 +42,12 @@ var __initial = {
         cancelButtonColor: '#2994B2',
         confirmButtonText: 'Si, eliminarlo.'
       }).then(function () {
-        boot.proveedor.delete(dta,function(r,s){
-          console.log(r);
+        boot.producto.delete(dta,function(r,s){
           switch(s) {
             case 200:
               __initial.form.notice({
                     title:'¡Borrada!',
-                    title:'La información del proveedor ha sido eliminada.',
+                    title:'La información del producto ha sido eliminada.',
                     type:'success'
                   });
               boot.tableInfo.fill();
@@ -73,6 +67,32 @@ var __initial = {
       })
     });
 
+    boot.categoria.get(function(r,s){
+      switch(s) {
+        case 200:
+          $.each(r.data,(i,c)=>{
+            console.log($("#categoria_id"));
+            $("#categoria_id").append($("<option/>").val(c.id).text(c.nombre));
+          });
+          break;
+        default:
+          break;
+      }
+    });
+
+    boot.proveedor.get(function(r,s){
+      switch(s) {
+        case 200:
+          $.each(r.data,(i,p)=>{
+            $("#proveedor_id").append($("<option/>").val(p.id).text(p.nombre));
+          });
+          break;
+        default:
+          break;
+      }
+      $('.mdb-select').material_select();
+    });
+
     $(boot.form.btn_submit).click(function(){
       boot.form.submit();
     });
@@ -85,6 +105,7 @@ var __initial = {
       __initial.form.open();
       __initial.tableInfo.close();
     });
+
   },
   tableInfo:{
     id:'#content_table_info',
@@ -103,23 +124,33 @@ var __initial = {
       return td;
     },
     fill:function(){
-      __initial.proveedor.get(function(r,s){
+      __initial.producto.get(function(r,s){
         switch(s) {
           case 200:
             $('.table tbody').empty();
-            r.data.map(function(p){
+            r.data.map(function(c){
               var $tdActions,$tr = $("<tr/>");
-              $.each(p,function(i,o){
+              $.each(c,function(i,o){
                 var $td;
                 switch(i) {
-                  case 'nombre':
-                  case 'name':
-                  case 'email':
+                  case 'nombre_table':
+                    $td = $("<th/>").addClass('row');
+                    console.log(o);
+                    var names = o.split(',');
+                    var productName = $("<h5/>").append(`<strong>${names[0]}</strong>`);
+                    var providerName = $("<p/>").addClass('text-muted').append(`Proveedor: ${names[1]}`);
+                    $td.append(productName);
+                    $td.append(providerName);
+                  break;
+                  case 'precio':
+                  case 'inventario':
+                  case 'descuento':
                       $td = $("<td/>");
-                      $td.append(o)
+                      $td.append(o);
                     break;
                   case 'id':
-                      $tdActions = __initial.tableInfo.action(p);
+                      $tdActions = __initial.tableInfo.action(c);
+                    console.log($tdActions);
                     break;
                   default:
                     break;
@@ -127,7 +158,7 @@ var __initial = {
                  $tr.append($td);
               });
               $tr.append($tdActions);
-              $('.table tbody').data('info',p).append($tr);
+              $('.table tbody').data('info',c).append($tr);
             });
             break;
           case 500:
@@ -141,8 +172,8 @@ var __initial = {
     }
   },
   form:{
-    id:'#frm_proveedores',
-    btn_submit:"#btn_save_p",
+    id:'#frm_productos',
+    btn_submit:"#btn_save",
     action:{
       self:function(){
         return JSON.parse($(__initial.form.id).attr('action'))
@@ -166,12 +197,13 @@ var __initial = {
     data:function(){
       var formData = new FormData();
       formData.append('nombre', $("#nombre").val());
-      formData.append('name', $("#name").val());
-      formData.append('email', $("#email").val());
-      formData.append('password', $("#password").val());
-      formData.append('password_confirmation', $("#password_confirmation").val());
-      // Attach file
-      formData.append('imagen_contacto', $('input[type=file]')[0].files[0]);
+      formData.append('descripcion', $("#descripcion").val());
+      formData.append('inventario', $("#inventario").val());
+      formData.append('precio', $("#precio").val());
+      formData.append('descuento', $("#descuento").val().replace('%',''));
+      formData.append('proveedor_id', $("#proveedor_id").val());
+      formData.append('categoria_id', $("#categoria_id").val());
+      formData.append('imagen', $('input[type=file]')[0].files[0]);
       return formData;
     },
     notice:function(dts){
@@ -194,12 +226,12 @@ var __initial = {
     submit:function(){
       switch($(this.btn_submit).data('action')){
         case 'save':
-          __initial.proveedor.save(function(r,s){
+          __initial.producto.save(function(r,s){
             switch(s){
               case 200:
                 __initial.form.notice({
                   title:'¡Hecho!',
-                  title:'La información del proveedor se ha guardado',
+                  title:'La información del producto se ha guardado',
                   type:'success'
                 });
                 $(__initial.form.id).trigger('reset');
@@ -225,14 +257,13 @@ var __initial = {
         case 'update':
           let info = JSON.parse($(this.btn_submit).data('info'));
           var dta = __initial.form.data();
-          dta.append('ID_user',info.ID_user);
           dta.append('id',info.id);
-           __initial.proveedor.update(dta,function(r,s){
+           __initial.producto.update(dta,function(r,s){
             switch(s){
               case 200:
                 __initial.form.notice({
                   title:'¡Hecho!',
-                  title:'La información del proveedor se ha actualizado',
+                  title:'La información del producto se ha actualizado',
                   type:'success'
                 });
                 $(__initial.form.id).trigger('reset');
@@ -262,14 +293,14 @@ var __initial = {
 
     }
   },
-  proveedor:{
+  producto:{
     object:{
-      name:'proveedor'
+      name:'producto'
     },
     get:function(cbk){
       let object = this;
       $.ajax({
-        url:'proveedores/all',
+        url:'productos/all',
         method:'POST',
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         dataType:'JSON'
@@ -288,7 +319,7 @@ var __initial = {
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         data:__initial.form.data(),
         beforeSend:function(xhr){
-          __initial.form.load(`Se esta guardando el ${__initial.proveedor.object.name}`);
+          __initial.form.load(`Se esta guardando la ${__initial.producto.object.name}`);
         },
         cache : false,
         processData: false
@@ -307,7 +338,7 @@ var __initial = {
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         data:dta,
         beforeSend:function(xhr){
-          __initial.form.load(`Se esta actualizando la información del ${__initial.proveedor.object.name}`);
+          __initial.form.load(`Se esta actualizando la información de la ${__initial.producto.object.name}`);
         },
         cache : false,
         processData: false
@@ -325,8 +356,38 @@ var __initial = {
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         data:dta,
         beforeSend:function(xhr){
-          __initial.form.load(`Se esta eliminando el proveedor ${__initial.proveedor.object.name}`);
+          __initial.form.load(`Se esta eliminando la ${__initial.producto.object.name}`);
         }
+      }).done(function(response){
+        cbk(response,response.status);
+      }).fail(function(error){
+        cbk(error,500);
+      });
+    }
+  },
+  proveedor:{
+    get:function(cbk){
+      let object = this;
+      $.ajax({
+        url:'proveedores/all',
+        method:'POST',
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        dataType:'JSON'
+      }).done(function(response){
+        cbk(response,response.status);
+      }).fail(function(error){
+        cbk(error,500);
+      });
+    }
+  },
+  categoria:{
+    get:function(cbk){
+      let object = this;
+      $.ajax({
+        url:'categorias/all',
+        method:'POST',
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        dataType:'JSON'
       }).done(function(response){
         cbk(response,response.status);
       }).fail(function(error){

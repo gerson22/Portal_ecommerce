@@ -35,7 +35,7 @@
             <div class="carousel-caption Portal_titles">
                 <h6 class="h6-responsive">Calidad en cada uno de nuestros productos</h6>
                 <h1 class="h1-responsive">Accesorios para cualquier ocasión</h1>
-                <button class="btn btn-warning Portal_catalogo">VER CATALOGO</button>
+                <button class="btn Portal_catalogo">VER CATALOGO</button>
             </div>
         </div>
       <!----
@@ -106,7 +106,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -126,7 +126,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -146,7 +146,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -166,7 +166,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -186,7 +186,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -206,7 +206,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -226,7 +226,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
@@ -246,7 +246,7 @@
 
 			    </div>
 			    <div class="card-block">
-			        <h4 class="card-title fa fa-shopping-bag fa-lg">&nbsp;&nbsp;Agregar a mi carrito</h4>
+			        <h6 class="card-title"><span class="fa fa-shopping-bag"></span>&nbsp;&nbsp;Agregar a mi carrito</h6>
 			    </div>
 			    <!--/.Card content-->
 			</div>
