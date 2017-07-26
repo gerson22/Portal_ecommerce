@@ -11,7 +11,7 @@
 	margin: -1% -20% -1% !important;
 }
 .navbar{
-	background-color: #fff;    
+	background-color: #fff;
 	margin-bottom: 0%;
 }
 .portal_info{
@@ -58,7 +58,7 @@
 	font-size: 100%;
     margin-top: 6%;
     border-radius: 5px;
-    background-color: #FFB400 !important;
+    background-color: #2e2e2e !important;
 }
 .Portal_catalogo_{
 	color: #525252 !important;
@@ -81,7 +81,7 @@
     margin-top: 7%;
 }
 .Portal_about_logo{
-	border: 5px solid #FFB400;
+	border: 5px solid #2e2e2e;
 }
 .conten:first-child{
 	margin-left: 4%;
@@ -103,16 +103,16 @@
 	background-color: #FFFFFF;
 }
 .Portal_divbtn{
-    border-top: 3px solid #FFB400;
+    border-top: 3px solid #2e2e2e;
 }
 .card{
-	border: 3px solid #FFB400 !important;
+	border: 3px solid #212121 !important;
 	width: 90%;
 }
 .card-block{
     text-align: left !important;
 	padding: 1rem !important;
-    background: #FFB400;
+    background: #212121;
     opacity: .8;
     color: #FFFFFF;
     font-size: 80%;
@@ -129,8 +129,11 @@
     margin: -2% 0% 0%;
 }
 .Precio_producto{
-	color: #FFB400;
-}    
+	color: #2e2e2e;
+}
 .overlay{
 	height: 13rem;
+}
+.card-title{
+  font-family: 'Lato','Arial',sans-serif;
 }

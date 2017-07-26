@@ -12,5 +12,26 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+
+    mix.copy(
+        'node_modules/sweetalert2/dist/sweetalert2.min.js',
+        'resources/assets/js/libs'
+    ).copy(
+        'node_modules/jquery-inputmask/index.js',
+        'resources/assets/js/libs'
+    ).copy(
+        'node_modules/sweetalert2/dist/sweetalert2.min.css',
+        'resources/assets/css/libs'
+    );
+
+    mix.styles([
+            'libs/sweetalert2.min.css'
+        ],  'public/assets/css/libs.css')
+        .scripts([
+            'libs/sweetalert2.min.js'
+        ],  'public/assets/js/libs.js')
+        .scripts([
+            'libs/index.js'
+        ],  'public/assets/js/inputMask.js');
+
 });
