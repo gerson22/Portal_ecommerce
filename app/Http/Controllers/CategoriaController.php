@@ -131,4 +131,19 @@ class CategoriaController extends BaseController
         return Response::json(array('status' => 500,'message' => "Errores de sevidor", 'data' => $e));
       }
     }
+     public function findByName(Request $request,$nombre){
+      try{
+        //code
+        $query = Categoria::where('nombre','LIKE','%'.$nombre.'%')->orderBy('nombre','asc');
+        $response = [
+          'status' => 200,
+          'message' => 'SUCCESS',
+          'data' => $query->get()
+        ];
+        return Response::json($response);
+      }
+      catch(Exception $e){
+        return Response::json(array('status' => 500,'message' => "Errores de sevidor", 'data' => $e));
+      }
+    }
 }

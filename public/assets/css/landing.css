@@ -56,7 +56,7 @@
 }
 .Portal_catalogo{
 	font-size: 100%;
-    margin-top: 6%;
+    margin-top: 2%;
     border-radius: 5px;
     background-color: #2e2e2e !important;
 }
@@ -136,4 +136,70 @@
 }
 .card-title{
   font-family: 'Lato','Arial',sans-serif;
+}
+.navbar.navbar-dark form input[type=text]:focus:not([readonly]), .navbar.navbar-light form input[type=text]:focus:not([readonly]) {
+    border-color: #2e2e2e;
+}
+.navbar {
+    background-color: rgba(242, 242, 242,.8);
+    color: #f2f2f2!important;
+}
+
+
+.scrolling-navbar {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.top-nav-collapse {
+    background-color: #f2f2f2;
+    color: #f2f2f2;
+}
+
+
+footer.page-footer {
+    background-color: #f2f2f2;
+    margin-top: 0;
+    color: #f2f2f2;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #f2f2f2;
+        color: #f2f2f2;
+    }
+}
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 50px;
+    z-index: 10;
+    padding-top: 0px;
+    padding-bottom: 220px;
+    color: #fff;
+    text-align: left;
+}
+.card-body-l{
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 2.5rem;
+  margin-left: 2.5rem;
+  margin-top: 2rem;
+}
+input[type=date], input[type=datetime-local], input[type=email], input[type=number], input[type=password], input[type=search-md], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], textarea.md-textarea{
+  height: 1rem;
+  outline: none !important;
+  border-color: #fff;
+  border-bottom-color: #2E2E2E;
+  box-shadow: 0 0 0px transparent!important;
+}
+.card-footer{
+  border-top-color: #f2f2f2;
+}
+.navbar.navbar-light .breadcrumb .nav-item .nav-link, .navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  color:#f2f2f2;
+}
+.navbar-light .navbar-brand{
+  color:#f2f2f2;
 }
