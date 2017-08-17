@@ -15,3 +15,23 @@
   display: block;
   padding: .7rem;
 }
+input[type=date]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=search-md]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, textarea.md-textarea:focus:not([readonly])+label{
+  color:#2E2E2E;
+}
+.hide{
+  display: none;
+}
+input[type=date], input[type=datetime-local], input[type=email], input[type=number], input[type=password], input[type=search-md], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], textarea.md-textarea{
+  height: 1rem;
+  outline: none !important;
+  border-color: #fff;
+  color:#f2f2f2;
+  border-bottom-color: #2E2E2E;
+  box-shadow: 0 0 0px transparent!important;
+}
+.navbar.navbar-light .breadcrumb .nav-item .nav-link, .navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  color:#f2f2f2;
+}
+.navbar-light .navbar-brand{
+  color:#f2f2f2;
+}

@@ -1,68 +1,46 @@
-// E-COMMERCE
-// Product card
-.product-card {
-    .tag {
+// Ecommerce Pro Cards
+// Collection card
+.collection-card {
+    .stripe {
         position: absolute;
-        left: 0;
-        top: 0;
-        background-color: $rgba-red-strong;
-        font-size: 1.4rem;
-    }
-    .action-buttons {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        .activator {
-            float: none;
-            padding: 0;
-            margin-right: 0;
-            font-size: 1rem;
-        }
-        .btn-floating {
-            display: block;
-            background-color: $primary-color;
-            height: 37px;
-            width: 37px;
-            line-height: 0;
-            .fa,
-            .material-icons {
-                font-size: 14px;
-                margin-top: 1px;
-            }
-        }
-    }
-    .rating {
-        position: absolute;
-        margin-top: -16px;
-        right: 10px;
-        background-color: $primary-color-dark;
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
-        &:hover {
-            .fa {
-                color: gold;
-                transition: all 0.4s linear;
-            }
-        }
-    }
-    .card-block {
-        .card-title,
-        .card-text {
-            padding-bottom: 0.6rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-    }
-    .cta {
+        bottom: 3rem;
+        width: 100%;
         text-align: center;
-        padding-bottom: 1rem;
-        p {
-            font-size: 1.3rem;
-            color: green;
-            span {
-                color: black;
-                text-decoration: line-through;
+        padding: 1.2rem;
+        &.dark {
+            background-color: $rgba-black-strong;
+            a p {
+                color: map-get($grey, "lighten-3");
             }
         }
+        &.light {
+            background-color: $rgba-white-strong;
+            a p {
+                color: map-get($grey, "darken-3");
+            }
+        }
+        a {
+            p {
+                padding: 0;
+                margin: 0;
+                letter-spacing: 4px;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.rating {
+    list-style-type:none;
+    padding:0;
+    li {
+        display: inline-block;
+    }
+}
+// When icon doesn't need padding
+.no-padding {
+    .fa {
+        padding: 0;
     }
 }
 
@@ -78,7 +56,7 @@
         text-align: center;
     }
     .price {
-        .tag {
+        .badge {
             background-color: $rgba-red-strong;
             font-size: 1.4rem;
             display: inline-block;
@@ -113,7 +91,7 @@
 }
 
 .wishlist {
-    @extend .btn-small;
+    @extend .btn-sm;
     background-color: $danger-color;
 }
 

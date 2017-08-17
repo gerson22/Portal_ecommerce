@@ -66,10 +66,11 @@ class ProveedorController extends BaseController
           $img = $request->file('imagen_contacto');
           $ext = $img->getClientOriginalExtension();
           $nameImage = $user->name.rand().'ID'.$user->id.'.'.$ext;
-          $path = $request->file('imagen_contacto')->move(storage_path().'/app/public/'.$this->collection.'/contacto', $nameImage);
+          $pathStorage = trim("/assets/img/$this->collection/contacto/");
+          $path = $request->file('imagen_contacto')->move(public_path().$pathStorage, $nameImage);
           $proveedor = new Proveedor();
           $proveedor->nombre = $data['nombre'];
-          $proveedor->imagen_contacto = $nameImage;
+          $proveedor->imagen_contacto = $pathStorage;
           $proveedor->user_id = $user->id;
           $proveedor->save();
           return Response::json(array('status' => 200,'message' => "Se ha guardado el ".$this->object." con exito.", 'data' => $proveedor));
@@ -116,11 +117,12 @@ class ProveedorController extends BaseController
             'password' => $hashed
           ));
           $uploadedFile = false;
-          if($request->hasFile('image_contacto')){
-            $img = $request->file('imagen_contacto');
+          if($request->hasFile('imagen_contacto')){
+            $img = $request->imagen_contacto;
             $ext = $img->getClientOriginalExtension();
-            $nameImage = $user->name.rand().'ID'.$user->id.'.'.$ext;
-            $path = $request->file('imagen_contacto')->move(storage_path().'/app/public/'.$this->collection.'/contacto', $nameImage);
+            $nameImage = $user->first()->name.rand().'ID'.$user->first()->id.'.'.$ext;
+            $pathStorage = trim("/assets/img/$this->collection/contacto/");
+            $moved = $request->imagen_contacto->move(public_path().$pathStorage, $nameImage);
             $uploadedFile = true;
           }
           $proveedor = Proveedor::where('id','=',$data['id']);
@@ -128,7 +130,7 @@ class ProveedorController extends BaseController
           if($uploadedFile){
             $updateArray = array(
               'nombre' => $data['nombre'],
-              'imagen_contacto' => $nameImage
+              'imagen_contacto' => $pathStorage.$nameImage
             );
           }else{
             $updateArray = array(
@@ -184,6 +186,26 @@ class ProveedorController extends BaseController
       }
       catch(Exception $e){
         return Response::json(array('status' => 500,'message' => "Errores de sevidor", 'data' => $e));
+      }
+    }
+    public function findByName(Request $request,$nombre){
+      try{
+          //code
+          $query = Proveedor::join('productos','productos.proveedor_id','=','proveedores.id')
+                    ->where("proveedores.nombre","LIKE","%{$nombre}%")
+                    ->where("proveedores.activo","=",1)
+                    ->groupBy('proveedores.id')
+                    ->select("proveedores.id","proveedores.nombre",DB::raw("count(proveedores.id) AS total_productos"),"proveedores.imagen_contacto")
+                    ->having("total_productos",">",0);
+          $response = [
+            'status' => 200,
+            'message' => 'SUCCESS',
+            'data' => $query->get()
+          ];
+          return Response::json($response);
+        }
+        catch(Exception $e){
+          return Response::json(array('status' => 500,'message' => "Errores de sevidor", 'data' => $e));
       }
     }
 }

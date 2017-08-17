@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 
 <html lang="en">
 <head>
@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="/libs/mdb/css/bootstrap.min.css">
     <link rel="stylesheet" href="/libs/mdb/css/mdb.min.css">
     <link rel="stylesheet" href="/libs/pnotify/pnotify.custom.min.css">
@@ -34,18 +32,12 @@
             margin-top: .1rem;
             margin-bottom: .1rem;
         }
-        .navbar-right > li:not(:last-child){
-            border-right: 2px solid #2E2E2E;
-        }
-        .panel > .bg-y{
-            background-color: #FFB400;
-            color: #fff;
-        }
+
         .form-group .form-control.pc:focus {
             outline: none !important;
             border-color: #fff;
             border-bottom-color: #2E2E2E;
-            box-shadow: 0 0 .1px #2E2E2E;
+            box-shadow: 0 0 0px transparent!important;
         }
         .input-group .form-control.pc:focus {
             outline: none !important;
@@ -72,14 +64,20 @@
 </head>
 
 
-<body id="fixed-sn blue-skin">
+<body class="fixed-sn black-skin bg-skin-lp">
 
     @yield('navbar')
 
-
+    <div class="content-main">
+      @yield('content_search')
+    </div>
+    <div class="search">
+      @yield('finded')
+    </div>
     <!-- JavaScripts -->
     <script src="/libs/mdb/js/jquery-3.1.1.min.js"></script>
     <script src="/libs/mdb/js/tether.min.js"></script>
+    <script src="/libs/mdb/js/popper.min.js"></script>
     <script src="/libs/mdb/js/bootstrap.min.js"></script>
     <script src="/libs/mdb/js/mdb.min.js"></script>
     <script src="/assets/js/inputMask.js"></script>
@@ -87,6 +85,8 @@
     <script src="{{url('/assets/js/libs.js')}}"></script>
     <script>
         $(function(){
+            new WOW().init();
+            $('body').find('.tooltips').tooltip();
             $(document).ready(function() {
                 fixBugMDB();
             });

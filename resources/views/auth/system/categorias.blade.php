@@ -4,20 +4,21 @@
 <div class="container">
     <!-- Form proveedores -->
     <div class="row" style="display:none;" id="form-card">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading yellow-main">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header elegant-color">
                   <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                   Crear categoria
                 </div>
-                <div class="panel-body">
+                <div class="card-body">
                         <?php echo $form; ?><br>
                         <div class="form-group">
-                            <div class="col-md-4 pull-right">
-                                <button type="button" id="btn_save" data-action="save" class="btn btn-warning blue-alt">
-                                    <i class="fa fa-btn fa-user"></i> Guardar
+                            <div class="col-md-5 pull-right">
+                                <button type="button" id="btn_save" data-action="save" class="btn elegant-color">
+                                    Guardar <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
@@ -28,8 +29,11 @@
     </div>
     <!-- end form -->
     <div class="row" id="content_table_info">
+        <div class="col-md-12">
+          <h2>Categorias</h2>
+        </div>
         <div class="row">
-          <a  id="add_p" class="btn-floating btn-small elegant-color-dark  pull-right"><i class="fa fa-plus"></i></a>
+          <a  id="add_p" class="btn-floating btn-small elegant-color-dark  pull-right tooltips" data-toggle="tooltip" data-placement="right" title="Agregar nueva categoria"><i class="fa fa-plus"></i></a>
         </div>
         <table class="table table-hover">
           <thead class="thead-inverse">

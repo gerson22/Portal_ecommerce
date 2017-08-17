@@ -17,6 +17,33 @@
 
 Route::get('/', 'LandingController@home');
 
+/*
+*
+* Rutas para los productos sin necesidad de auth
+*
+*/
+Route::get('/productos-marca-{nombre}-{id}','ProductoController@findByProvider');
+Route::post('/productos-marca-{id}','ProductoController@findByProviderRange');
+Route::get('/productos-categoria-{nombre}-{id}','ProductoController@findByCategory');
+Route::post('/productos-categoria-{id}','ProductoController@findByCategoryRange');
+
+Route::group(['prefix' => 'productos'], function () {
+    Route::post('findByName/{nombre}','ProductoController@findByName');
+    Route::post('findByProvider/{proveedor_id}','ProductoController@findByProvider');
+    Route::post('findByCategory/{categoria_id}','ProductoController@findByCategory');
+});
+Route::group(['prefix' => 'proveedores'], function () {
+  Route::post('findByName/{nombre}','ProveedorController@findByName');
+});
+Route::group(['prefix' => 'categorias'], function () {
+  Route::post('findByName/{nombre}','CategoriaController@findByName');
+});
+Route::group(['prefix' => 'mi-carrito'], function () {
+  Route::get('/','CarritoController@home');
+  Route::post('save','CarritoController@save');
+  Route::post('delete-item','CarritoController@delete');
+});
+
 Route::group(['middleware' => ['auth']], function () {
   Route::group(['prefix' => 'proveedores'], function () {
     Route::get('/','ProveedorController@home');

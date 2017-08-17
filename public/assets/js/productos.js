@@ -118,8 +118,8 @@ var __initial = {
     action:function(info){
       let infoObject = JSON.stringify(info);
       let td = `<td>
-                <a class="text-blue-alt ta_update" data-info='${infoObject}'><i class="fa fa-pencil"></i></a>
-                <a class="red-text ta_delete" data-info='${infoObject}'><i class="fa fa-times"></i></a>
+                <a class="text-blue-alt ta_update tooltips" data-toggle="tooltip" data-placement="right" title="Editar información del producto" data-info='${infoObject}'><i class="fa fa-pencil"></i></a>
+                <a class="red-text ta_delete tooltips" data-toggle="tooltip" data-placement="right" title="Eliminar el producto" data-info='${infoObject}'><i class="fa fa-times"></i></a>
             </td>`;
       return td;
     },
@@ -137,10 +137,8 @@ var __initial = {
                     $td = $("<th/>").addClass('row');
                     console.log(o);
                     var names = o.split(',');
-                    var productName = $("<h5/>").append(`<strong>${names[0]}</strong>`);
-                    var providerName = $("<p/>").addClass('text-muted').append(`Proveedor: ${names[1]}`);
+                    var productName = $("<h5/>").append(`<strong style="padding:.7rem;">${names[0]}</strong>`);
                     $td.append(productName);
-                    $td.append(providerName);
                   break;
                   case 'precio':
                   case 'inventario':
@@ -201,7 +199,6 @@ var __initial = {
       formData.append('inventario', $("#inventario").val());
       formData.append('precio', $("#precio").val());
       formData.append('descuento', $("#descuento").val().replace('%',''));
-      formData.append('proveedor_id', $("#proveedor_id").val());
       formData.append('categoria_id', $("#categoria_id").val());
       formData.append('imagen', $('input[type=file]')[0].files[0]);
       return formData;
