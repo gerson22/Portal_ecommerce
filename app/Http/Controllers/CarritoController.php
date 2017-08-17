@@ -33,31 +33,35 @@ class CarritoController extends BaseController
         $items = 0;
         if(is_array($carritoArray)){
           foreach($carritoArray as $object){
-            $items++;
+            $desc = $request->get('descuento');
             if($object->id == $request->get('id')){
               $object->count = $object->count + 1;
               array_push($products,$object);
             }
-            elseif($items == count($carritoArray)-1){
-              $nObject = (object)array(
-                'id' => $request->get('id'),
-                'nombre' => $request->get('nombre'),
-                'descripcion' => $request->get('descripcion'),
-                'precio' => $request->get('precio'),
-                'descuento' => $request->get('descuento'),
-                'count' => 1
-              );
-              array_push($products,$nObject);
-            }
             else{
-              array_push($products,$object);
+              if($items == count($carritoArray)-1){
+                $nObject = (object)array(
+                  'id' => $request->get('id'),
+                  'nombre' => $request->get('nombre'),
+                  'descripcion' => $request->get('descripcion'),
+                  'imagen' => $request->get('imagen'),
+                  'precio' => ($desc > 0) ? (($request->get('precio')*(100-$des))*0.01),
+                  'descuento' => $request->get('descuento'),
+                  'count' => 1
+                );
+                array_push($products,$nObject);
+              }else{
+                array_push($products,$object);
+              }
             }
+            $items++;
           }
         }else{
           $nObject = (object)array(
                 'id' => $request->get('id'),
                 'nombre' => $request->get('nombre'),
                 'descripcion' => $request->get('descripcion'),
+                'imagen' => $request->get('imagen'),
                 'precio' => $request->get('precio'),
                 'descuento' => $request->get('descuento'),
                 'count' => 1
@@ -75,81 +79,59 @@ class CarritoController extends BaseController
     }
     public function update(Request $request){
       try{
-        // Fetch all request data.
-        $data = $request->all();
-
-        // Rules user
-        $rules = array(
-            'nombre' => 'required|min:3|max:32',
-            'inventario' => 'required',
-            'precio' => 'required'
-        );
-
-        // Create a new validator instance.
-        $vU = Validator::make($data, $rules);
-
-
-        if ($vU->passes()) {
-
-          $producto = Producto::where('id','=',$data['id']);
-          $updateArray = array(
-            'nombre' => $data['nombre'],
-            'descripcion' => $data['descripcion'],
-            'inventario' => $data['inventario'],
-            'precio' => $data['precio'],
-            'descuento' => $data['descuento'],
-            'proveedor_id' => $data['proveedor_id'],
-            'categoria_id' => $data['categoria_id']
-          );
-          $producto->update($updateArray);
-          if($request->hasFile('imagen')){
-            $producto = Producto::find($data['id']);
-            $providerName = Proveedor::find($data['proveedor_id'])->nombre;
-            $img = $request->file('imagen');
-            $ext = $img->getClientOriginalExtension();
-            $nameImage = $producto->nombre.rand().'.'.$ext;
-            $pathStorage = "/app/public/$this->collection/$providerName/";
-            $path = $img->move(storage_path().$pathStorage, $nameImage);
-            $producto->imagen = $pathStorage.$nameImage;
-            $producto->save();
+        //code
+        $products = [];
+        $carritoArray = $request->session()->get('mi-carrito');
+        $items = 0;
+        if(is_array($carritoArray)){
+          foreach($carritoArray as $object){
+            $items++;
+            if($object->id == $request->get('id')){
+              $object->count = $request->get('count');
+              array_push($products,$object);
+            }
+            else{
+              array_push($products,$object);
+            }
           }
-          return Response::json(array('status' => 200,'message' => "Se ha actualizado la información del $this->object con exito.", 'data' => $producto));
-
         }
-
-        return Response::json(array('status' => 'P-101','message' => "Errores de validación", 'data' => $vU->errors()->all()));
+        $request->session()->put('mi-carrito',$products);
+        return Response::json(array('status'=>200,'statusMessage'=>'SUCCESS','data'=>$products));
       }
       catch(Exception $e){
-        return Response::json(array('status' => 500,'message' => "Errores de sevidor", 'data' => $e));
+        return Response::json(array('status'=>500,'statusMessage'=>'SERVER ERROR','data'=>$e));
       }
 
     }
-    public function delete(Request $request){
+    public function remove(Request $request){
       try{
-          // Fetch all request data.
-          $data = $request->all();
-
-          $categoria = Producto::where('id','=',$data['id']);
-          $categoria->update(array(
-            'activo' => 0
-          ));
-
-          return Response::json(array('status' => 200,'message' => "Se ha eliminado el $this->object con exito.", 'data' => $categoria));
+        //code
+        $products = [];
+        $carritoArray = $request->session()->get('mi-carrito');
+        $items = 0;
+        if(is_array($carritoArray)){
+          foreach($carritoArray as $object){
+            $items++;
+            if($object->id != $request->get('id')){
+              array_push($products,$object);
+            }
+          }
+        }
+        $request->session()->put('mi-carrito',$products);
+        if(count($products) == 0){
+          $request->session()->forget('mi-carrito');
+        }
+        return Response::json(array('status'=>200,'statusMessage'=>'SUCCESS','data'=>$products));
       }
       catch(Exception $e){
-        return Response::json(array('status' => 500,'message' => "Errores de sevidor", 'data' => $e));
+        return Response::json(array('status'=>500,'statusMessage'=>'SERVER ERROR','data'=>$e));
       }
 
 
     }
     public static function all(Request $request){
       try{
-        $response = [
-          'status' => 200,
-          'message' => 'SUCCESS',
-          'data' => $request->session()->get('mi-carrito')
-        ];
-        return Response::json($response);
+        return View::make('carrito',['productos' => $request->session()->get('mi-carrito')]);
       }
       catch(Exception $e){
         return Response::json(array('status' => 500,'message' => "Errores de sevidor", 'data' => $e));

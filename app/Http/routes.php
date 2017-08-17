@@ -39,9 +39,10 @@ Route::group(['prefix' => 'categorias'], function () {
   Route::post('findByName/{nombre}','CategoriaController@findByName');
 });
 Route::group(['prefix' => 'mi-carrito'], function () {
-  Route::get('/','CarritoController@home');
+  Route::get('/','CarritoController@all');
   Route::post('save','CarritoController@save');
-  Route::post('delete-item','CarritoController@delete');
+  Route::post('update','CarritoController@update');
+  Route::post('remove','CarritoController@remove');
 });
 
 Route::group(['middleware' => ['auth']], function () {

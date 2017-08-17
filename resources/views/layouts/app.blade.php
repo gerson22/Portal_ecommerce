@@ -36,7 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/register">Crear cuenta</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Mi carrito</a>
+                </li>
             </ul>
             <!-- Links -->
 
@@ -44,6 +46,7 @@
             <div class="md-form">
                 <input type="search" id="form-autocomplete" placeholder="Buscar" class="form-control mdb-autocomplete pc">
             </div>
+
         </div>
         <!-- Collapsible content -->
 

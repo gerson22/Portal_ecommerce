@@ -203,3 +203,10 @@ input[type=date], input[type=datetime-local], input[type=email], input[type=numb
 .navbar-light .navbar-brand{
   color:#f2f2f2;
 }
+.navbar.navbar-light .breadcrumb .nav-item .nav-link, .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+  color:#f4f4f4;
+}
+.navbar-light .navbar-brand:hover{
+  color:#f4f4f4;
+}
+

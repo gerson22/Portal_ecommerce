@@ -57,6 +57,25 @@ var __initial = {
       console.log($(this).data('info'));
       producto.addCart($(this));
     });
+    $("#btn_remove_item").click(function(){
+      boot.producto.removeCart($(this).data('id'));
+    });
+    $("#countAdd,#countSubstract").click(function(){
+      let id = $(this).parent().data('id');
+      console.log(id)
+      var cantidad;
+      console.log($(this).attr('id'));
+      switch($(this).attr('id')) {
+        case "countAdd":
+          cantidad = parseFloat($("#qty_"+id).text()) + 1;
+          break;
+        default:
+          cantidad = parseFloat($("#qty_"+id).text()) - 1;
+          break;
+      }
+      $(`#qty_${id}`).text(cantidad);
+      boot.producto.updateCart.count(id,cantidad);
+    })
     $("#form-autocomplete").keyup(function(e){
       if(e.keyCode == 13){
         let nombre = $(this).val();
@@ -220,6 +239,62 @@ var __initial = {
       }).fail(function(e){
         console.error(e);
       });
+    },
+    updateCart:{
+      count:function(id,c){
+        __initial.producto.object().taskAsync({
+          uri:'/mi-carrito/update',
+          method:'POST',
+          dataType:'JSON',
+          data:{count:c,id:id}
+        }).done(function(r){
+          switch(r.status) {
+            case 200:
+              let mainRow = $(`#tr_${id}`);
+              mainRow.data('count',c);
+              mainRow.children('td').eq(3).text('$'+(c*mainRow.data('precio')));
+              $("#total_neto").text('$'+__initial.producto.total_neto());
+              break;
+            default:
+              break;
+          }
+        }).fail(function(e){
+          console.error(e);
+        });
+      }
+    },
+    removeCart:function(id){
+      let producto = this;
+        producto.object().taskAsync({
+          uri:'/mi-carrito/remove',
+          method:'POST',
+          dataType:'JSON',
+          data:{id:id}
+        }).done(function(r){
+          switch(r.status) {
+            case 200:
+              $(".product-table").children("tbody").children('tr').each(function(){
+                if($(this).data('id') == id){
+                  $(this).remove();
+                }
+              });
+              $("#total_neto").text('$'+__initial.producto.total_neto());
+              break;
+            default:
+              break;
+          }
+        }).fail(function(e){
+          console.error(e);
+        });
+    },
+    total_neto:function(){
+      var total_neto = 0;
+      $(".product-table").children("tbody").children('tr').each(function(){
+        console.log($(this).data('id'));
+        if($(this).data('id') !== undefined)
+          total_neto = total_neto + parseFloat($(this).data('count'))*parseFloat($(this).data('precio'));
+      });
+      return total_neto;
     }
 
   },

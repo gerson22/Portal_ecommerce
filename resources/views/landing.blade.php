@@ -7,9 +7,6 @@
 
 <!---- Items en la navbar ---->
 @section('navbar-guest')
-     <li class="nav-item">
-          <a class="nav-link" href="#">Portal plateria</a>
-      </li>
       <li class="nav-item">
           <a class="nav-link" href="#">Deestacados</a>
       </li>
