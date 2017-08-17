@@ -1,3 +1,4 @@
+
 var __initial = {
   boot:function(){
     let boot = this;
