@@ -106,7 +106,8 @@ return [
 	|
 	*/
 	'attributes' => [
-		'username' => 'usuario',
-		'password' => 'contraseña'
+		'name' => 'usuario',
+		'password' => 'contraseña',
+		'password_confirmation' => 'Repetir contraseña'
 	],
 ];

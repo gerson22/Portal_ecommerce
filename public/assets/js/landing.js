@@ -1,33 +1,347 @@
-$(function(){
- //   code 
- // var Portal_button = 
- // "<div class="+'col-md-3'+">"+
- // "<div class="+'card'+">"+
- //     "<div class="+'view overlay hm-white-slight'+">"+
- //         "<img src="+'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2851%29.jpg'+" class="+'img-fluid'+" alt="+">"+
- //         "<a>"+
- //            "<div class="+'mask waves-effect waves-light'+">"+"</div>"+
- //         "</a>"+
- //     "</div>"+
- //     "<div class="+'card-block'+">"+
- //        "<a class="+'activator'+">"+"<i class="+'fa fa-share-alt'+">"+"</i>"+"</a>"+
- //         "<h4 class="+'card-title'+">"+'Card title'+"</h4>"+
- //        "<hr>"+
- //        "<p class="+'card-text'+">"+'Some quick example text to build on the card title and make up the bulk of the cards content.'+"</p>"+
- //         "<a href="+'#'+" class="+'black-text d-flex flex-row-reverse'+">"+"<h5 class="+'waves-effect p-2'+">"+'Read more '+"<i class="+'fa fa-chevron-right'+">"+"</i>"+"</h5>"+"</a>"+
- //     "</div>"+
- //    "</div>"+	
- // "</div>";
- // var array = [1,2,3,4,5,6,7,8];
 
- // 	$(".Portal_catalogo_").click(function(){
-	// 	alert("Cards");
- // 	    $.each(array, function( index, value ) {
- // 	    	 $("#Portal_cards").append(Portal_button);
- // 	    });
- // 	});
-});
+var __initial = {
+  boot:function(){
+    let boot = this;
+    let producto = boot.producto;
+    let categoria = boot.categoria;
+    let proveedor = boot.proveedor;
 
+    $("#max-price,#min-price").change(function(){
+      $('#'+$(this).attr('id')+'-l').find('span').eq(0).text($(this).val());
+      var uri;
+      let id = $(this).data('id');
+      if($(this).data('self') == "category"){uri='/productos-categoria-'+id;}else{uri='/productos-marca-'+id;}
+      producto.object().taskAsync({
+        uri:uri,
+        method:'POST',
+        dataType:'JSON',
+        data:{
+          min: $("#min-price").val(),
+          max: $("#max-price").val()
+        }
+      }).done(function(r){
+        console.log(r);
+        switch(r.status) {
+          case 200:
+            let section = $("<section/>").addClass("section pb-3 animated bounce");
+            var countP = 0;
+            var row = $('<div/>').addClass('row');
+            $.each(r.data,function(i,p){
+                countP++;
+                row.append(producto.layouts.finded(p));
+                if(r.data.length == countP){
+                  section.append(row);
+                }
+            });
+            /* Initial  tooltips */
+            $('body').find('.tooltips').tooltip();
+            let container = $("#productos").children('.jumbotron').eq(1).children('div').eq(1);
+            container.empty();
+            if(r.data.length == 0){container.append("Sin resultados");}
+            container.append(section);
+            break;
+          default:
+            break;
+        }
+      }).fail(function(e){
+
+      });
+    });
+    $(".close-sc").click(function(e){
+      e.preventDefault();
+      boot.layout.finded.hide();
+      boot.layout.main.show();
+
+    });
+    $("body").on('click','.addCart',function(){
+      console.log($(this).data('info'));
+      producto.addCart($(this));
+    });
+    $("#form-autocomplete").keyup(function(e){
+      if(e.keyCode == 13){
+        let nombre = $(this).val();
+        let objRequest = {method:'POST', nombre:nombre};
+        let limit = 4;
+        boot.layout.main.hide();
+        boot.layout.finded.show();
+        producto.object().name = "producto";
+        producto.object().findByName(objRequest,function(r,s){
+              console.log(r);
+              switch(s) {
+                case 200:
+                  let section = $("<section/>").addClass("section pb-3 animated bounce");
+                  var countP = 0;
+                  var row = $('<div/>').addClass('row');
+                  $.each(r.data,function(i,p){
+                      countP++;
+                      row.append(producto.layouts.finded(p));
+                      if(r.data.length == countP){
+                        section.append(row);
+                      }
+                  });
+                  /* Initial  tooltips */
+                  $('body').find('.tooltips').tooltip();
+                  $(".body_products .jumbotron").empty();
+                  if(r.data.length == 0){$(".body_products .jumbotron").append("Sin resultados");}
+                  $(".body_products .jumbotron").append(section);
+                  break;
+                default:
+                  break;
+              }
+          });
+        categoria.object().name = "categoria";
+        categoria.object().findByName(objRequest,function(r,s){
+          switch(s) {
+              case 200:
+                let section = $("<section/>").addClass("section pb-3 wow bounce");
+                  var countP = 0;
+                  var row = $('<div/>').addClass('row');
+                  $.each(r.data,function(i,p){
+                    countP++;
+                      row.append(categoria.layouts.finded(p));
+                      if(r.data.length == countP){
+                        section.append(row);
+                      }
+                  });
+                  /* Initial  tooltips */
+                  $('body').find('.tooltips').tooltip();
+                  $(".body_category .jumbotron").empty();
+                  if(r.data.length == 0){$(".body_category .jumbotron").append("Sin resultados");}
+                  $(".body_category .jumbotron").append(section);
+                break;
+              default:
+                break;
+          }
+        });
+        proveedor.object().name = "proveedore";
+        proveedor.object().findByName(objRequest,function(r,s){
+            switch(s) {
+              case 200:
+                let section = $("<section/>").addClass("section pb-3 wow bounce");
+                  var countP = 0;
+                  var row = $('<div/>').addClass('row');
+                  $.each(r.data,function(i,p){
+                    countP++;
+                      row.append(proveedor.layouts.finded(p));
+                      if(countP == r.data.length){
+                        section.append(row);
+                      }
+                  });
+                  $(".body_provider .jumbotron").empty();
+                  /* Initial  tooltips */
+                  $('body').find('.tooltips').tooltip();
+                  if(r.data.length == 0){$(".body_provider .jumbotron").append("Sin resultados");}
+                  $(".body_provider .jumbotron").append(section);
+                break;
+              default:
+                break;
+            }
+        });
+      }
+    });
+  },
+  producto:{
+    object:function(){
+        return __initial.object;
+    },
+    layouts:{
+      finded:function(dta){
+        let discountApplied = parseFloat(dta.precio*((100-dta.descuento)*.01)).toFixed(2);
+        let shortDescription = dta.descripcion.substr(0,100);
+        let container = `<!--Card-->
+            <div class="card col-md-3 col-sm-5 col-xs-12 hoverable card-finded card-body-l" data-info='${JSON.stringify(dta)}' >
+
+                <!--Card image-->
+                <div class="view overlay hm-black-slight z-depth-1">
+                    <img src="${dta.imagen}" class="img-fluid" style="height:100%;" alt="Imagen del producto ${dta.nombre}">
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                </div>
+                <!--Card image-->
+
+                <!--Card content-->
+                <div class="card-body text-center no-padding elegant-color">
+                    <!--Category & Title-->
+                    <a href="" class="text-muted"><h5>${dta.nombreCategoria}</h5></a>
+                    <h4 class="card-title black"><strong><a href="">${dta.nombre}</a></strong></h4>
+
+                    <!--Description-->
+                    <p class="card-text">${(dta.descripcion)?shortDescription+"...":"Sin descripción"}
+                    </p>
+
+                    <!--Card footer-->
+                    <div class="card-footer">
+                        <span class="left">
+                            <div class="row">
+                              <span class="${(dta.descuento > 0)?"":"hide"}">$${discountApplied}
+                                    <span class="discount"> $${dta.precio}</span>
+                              </span>
+                              <span class="${(dta.descuento > 0)?"hide":""}"> $${dta.precio}</span>
+                            </div>
+                        </span>
+                        <span class="right">
+                          <div class="row">
+                            <a class="tooltips" data-toggle="tooltip" data-placement="top" title="Vista rápida"><i class="fa fa-eye" data-info='${JSON.stringify(dta)}' ></i></a>
+                            <a data-toggle="tooltip" data-placement="top" data-info='${JSON.stringify(dta)}' class="tooltips addCart" title="Agregar al carrito"><span class="fa fa-shopping-cart"></span></a>
+                          </div>
+                        </span>
+                    </div>
+
+                </div>
+                <!--Card content-->
+
+            </div>
+            <!--Card-->`;
+        return container;
+      }
+    },
+    addCart:function(p){
+      console.log(p.data('info'));
+      let producto = this;
+      producto.object().taskAsync({
+        uri:'/mi-carrito/save',
+        method:'POST',
+        dataType:'JSON',
+        data:p.data('info')
+      }).done(function(r){
+        switch(r.status) {
+          case 200:
+            console.log(r.data);
+            swal({
+              title: "Producto agregado.",
+              text: "El productos ha sido agregado al carrito.",
+              type: "success"
+            });
+            break;
+          default:
+            break;
+        }
+      }).fail(function(e){
+        console.error(e);
+      });
+    }
+
+  },
+  categoria:{
+    object:function(){
+      return __initial.object
+    },
+    layouts:{
+      finded:function(dta){
+        let container = `<!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-r card-finded card-body-l" data-info=${JSON.stringify(dta)}>
+
+            <!--Collection card-->
+            <div class="card collection-card z-depth-1-half">
+                <!--Card image-->
+                <div class="view  hm-zoom">
+                    <img src="http://cdn2.actitudfem.com/media/files/images/2014/11/notajoyas.jpg" class="img-fluid" alt="">
+                    <div class="stripe light">
+                        <a href="/productos-categoria-${dta.nombre.trim()}-${dta.id}">
+                            <p>${dta.nombre} <i class="fa fa-chevron-right"></i></p>
+                        </a>
+                    </div>
+                </div>
+                <!--Card image-->
+            </div>
+            <!--Collection card-->
+
+        </div>
+        <!--Grid column-->`;
+        return container;
+      }
+    }
+  },
+  proveedor:{
+    object:function(){
+      return __initial.object
+    },
+    layouts:{
+      finded:function(dta){
+        let container = `<!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-r card-finded card-body-l" data-info=${JSON.stringify(dta)}>
+
+            <!--Collection card-->
+            <a href="/productos-marca-${dta.nombre.trim()}-${dta.id}"><div class="card collection-card z-depth-1-half">
+                <!--Card image-->
+                <div class="view  hm-zoom">
+                    <img src="${dta.imagen_contacto}" class="img-fluid" alt="">
+                    <div class="stripe light">
+                        <a>
+                            <p>${dta.nombre} <i class="fa fa-chevron-right"></i></p>
+                        </a>
+                    </div>
+                </div>
+                <!--Card image-->
+            </div></a>
+            <!--Collection card-->
+
+        </div>
+        <!--Grid column-->`;
+        return container;
+      }
+    }
+  },
+  object:{
+    name:this.name,
+    collection:function(){
+      return `${__initial.object.name}s`;
+    },
+    findByName:function(_jsonObject,_fnCallback){
+      let _uri = `/${this.collection()}/findByName/${_jsonObject.nombre}`;
+      $.ajax({
+        url:_uri,
+        method:_jsonObject.method,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        dataType:'JSON'
+      }).done(function(response){
+        _fnCallback(response,200);
+      }).fail(function(error){
+        _fnCallback(error,500)
+      });
+    },
+    taskAsync:function(_jsonObject,_fnCallback){
+      var task = $.ajax({
+        url:_jsonObject.uri,
+        method:_jsonObject.method,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        dataType:_jsonObject.dataType,
+        data:(_jsonObject.data !== undefined) ? _jsonObject.data : {}
+      });
+      if(typeof _fnCallback === 'function'){
+        task.done(function(response){
+          _fnCallback(response,200);
+        }).fail(function(error){
+          _fnCallback(error,500);
+        });
+        return;
+      }
+      return task;
+    }
+  },
+  layout:{
+    main:{
+      id:'.main',
+      hide:function(){
+        $(this.id).hide('slow');
+      },
+      show:function(){
+        $(this.id).show('slow');
+      },
+    },
+    finded:{
+      id:'.finded',
+      hide:function(){
+        $(this.id).hide('slow');
+      },
+      show:function(){
+        $(this.id).show('slow');
+      },
+    }
+  }
+}
+$(__initial.boot());
 
 
 

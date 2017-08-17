@@ -1,26 +1,29 @@
-// SCROLLSPY
+// Scrollspy
 .nav-pills .nav-item {
     a {
+        text-align:left;
         color: #666;
-    }
-    .active {
-        background-color: transparent;
-        color: $mdb-color;
-        border-left: 2px solid $mdb-color;
-        font-weight: 500;
-        &:hover,
-        &:active,
-        &:focus {
+        border-radius:0;
+        &:hover {
             background-color: transparent;
-            color: $mdb-color;
+            color: color($mdb-color, "base");
             font-weight: 500;
+            border-left: 1px solid color($mdb-color, "base");
         }
-    }
-    &:hover {
-        background-color: transparent;
-        color: $mdb-color;
-        font-weight: 500;
-        border-left: 1px solid $mdb-color;
+        &.active {
+            background-color: transparent;
+            color: map-get($mdb-color, "base");
+            border-left: 2px solid color($mdb-color, "base");
+            font-weight: 500;
+            box-shadow:none;
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: transparent;
+                color: color($mdb-color, "base");
+                font-weight: 500;
+            }
+        }
     }
 }
 
@@ -28,7 +31,7 @@
     margin-left: 0;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 991px) {
     .sticky,
     .sticky-placeholder {
         display: none;
@@ -36,28 +39,28 @@
 }
 
 #scrollspy {
-    width: 120px;
+    width: 100%;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: $medium-screen) {
     .col-md-4 .sticky, .col-lg-4 .sticky, .col-xl-4 .sticky {
         width: 200px;
     }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: $medium-screen) {
     .col-md-4 .sticky  .col-lg-4 .sticky, .col-xl-4 .sticky {
         width: 400px;
     }
 }
 
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: $large-screen) {
     .col-md-4 .sticky {
         width: 300px;
     }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: $sidenav-breakpoint) {
     .col-md-4 .sticky {
         width: 350px;
     }
@@ -70,9 +73,9 @@
     position: fixed;
     top:50%;
     right:0;
-    @include transform(translateY(-50%));
+    transform: translateY(-50%);
     background: rgba(0,0,0,.55);
-    @include border-radius(2px 0 0 2px);
+    border-radius:2px 0 0 2px;
     li {
         display:block;
         padding:0 16px;
@@ -83,6 +86,7 @@
             padding-bottom: 10px;
         }
         a {
+        	padding:0.5rem;
             span {
                 display:block;
                 background-color:rgba(255,255,255,.54);
@@ -97,4 +101,11 @@
             }
         }
     }
+}
+
+.scrollspy-example {
+    overflow-y: scroll;
+    position: relative;
+    height: 200px;
+    padding: 1rem;
 }
